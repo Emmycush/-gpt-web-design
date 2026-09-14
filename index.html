@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GPT Web Design | Web Design</title>
+
+  <title>GPT Web Design | Professional Websites</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -11,102 +13,151 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #172033;
       line-height: 1.6;
-      color: #222;
-      background: #f5f7fa;
     }
 
     header {
-      background: #111827;
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
       color: white;
-      padding: 25px 20px;
       text-align: center;
+      padding: 70px 20px;
     }
 
     header h1 {
-      font-size: 30px;
-      margin-bottom: 8px;
+      font-size: 42px;
+      margin-bottom: 12px;
     }
 
     header p {
-      color: #d1d5db;
+      font-size: 18px;
+      color: #dbeafe;
+      margin-bottom: 25px;
     }
 
     nav {
-      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 8px;
-      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #bfdbfe;
+    }
+
+      section {
+        padding: 50px 15px;
+      }
+
+      .hero .button {
+        display: block;
+        margin: 10px auto;
+        max-width: 220px;
+      }
+      padding: 70px 20px;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #0f172a;
     }
 
     .hero {
-      padding: 70px 20px;
       text-align: center;
-      background: white;
     }
 
     .hero h2 {
-      font-size: 34px;
+      font-size: 36px;
       margin-bottom: 15px;
     }
 
     .hero p {
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
-      color: #555;
+      color: #64748b;
+      font-size: 17px;
     }
 
     .button {
       display: inline-block;
       margin-top: 25px;
       padding: 13px 24px;
-      background: #111827;
+      background: #2563eb;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
+      font-weight: bold;
     }
 
-    section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
+    .button:hover {
+      background: #1d4ed8;
     }
 
-    section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .services {
+    .services-grid,
+    .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
     }
 
     .card {
       background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      padding: 28px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
     }
 
     .card h3 {
-      margin-bottom: 10px;
+      color: #1d4ed8;
+      margin-bottom: 12px;
     }
 
     .card p {
-      color: #666;
+      color: #64748b;
+    }
+.popular {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #2563eb;
+  color: white;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2563eb !important;
+  margin: 10px 0 15px;
+}
+
+    .card ul {
+      margin-top: 15px;
+      padding-left: 20px;
+      color: #475569;
     }
 
-    .portfolio {
-      background: white;
+    .about {
       text-align: center;
+      max-width: 800px;
     }
 
     .contact {
@@ -114,160 +165,370 @@
     }
 
     footer {
-      background: #111827;
-      color: white;
+      background: #0f172a;
+      color: #cbd5e1;
       text-align: center;
-      padding: 25px;
-      margin-top: 20px;
+      padding: 35px 20px;
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+      margin: 0 8px;
     }
 
     @media (max-width: 700px) {
-      .services {
+      header {
+        padding: 55px 15px;
+      }
+
+      header h1 {
+        font-size: 32px;
+      }
+
+      .services-grid,
+      .portfolio-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero h2 {
-        font-size: 28px;
+      section {
+        padding: 50px 15px;
       }
+
+      .hero .button {
+        display: block;
+        margin: 10px auto;
+        max-width: 220px;
+      }
+.project-preview {
+  margin-bottom: 25px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #eef4ff;
+  border: 1px solid #dbeafe;
+}
+
+.preview-top {
+  height: 30px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 12px;
+}
+
+.preview-top span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+
+.preview-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.preview-logo {
+  width: 42px;
+  height: 42px;
+  margin: auto;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.preview-content h4 {
+  margin: 12px 0;
+  color: #0f172a;
+}
+
+.preview-line {
+  height: 8px;
+  width: 80%;
+  margin: 10px auto;
+  border-radius: 5px;
+  background: #cbd5e1;
+}
+
+.preview-line.short {
+  width: 55%;
+}
+
+.preview-button {
+  margin: 18px auto 0;
+  padding: 9px;
+  width: 70%;
+  border-radius: 7px;
+  background: #2563eb;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+}
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>GPT Web Design</h1>
-  <p>Affordable Web Design for Businesses & Individuals</p>
+  <header>
+    <h1>GPT Web Design</h1>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h2>Build Your Online Presence</h2>
-  <p>
-    I create clean, professional and mobile-friendly websites for businesses,
-    individuals, schools and organizations.
-  </p>
-
-  <a class="button" href="#contact">Work With Me</a>
-</section>
-
-<section id="services">
-  <h2>My Services</h2>
-
-  <div class="services">
-
-    <div class="card">
-      <h3>Business Websites</h3>
-      <p>
-        Professional websites that help businesses establish
-        an online presence.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Personal Websites</h3>
-      <p>
-        Personal portfolios and profile websites for individuals
-        and professionals.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Educational Websites</h3>
-      <p>
-        Informative websites for schools, tutors, courses
-        and educational projects.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-<section>
-  <h2>Why Choose GPT Web Design?</h2>
-
-  <div class="services">
-    <div class="card">
-      <h3>Mobile Friendly</h3>
-      <p>Your website will work smoothly on phones, tablets and computers.</p>
-    </div>
-
-    <div class="card">
-      <h3>Affordable</h3>
-      <p>Professional website solutions designed for different budgets.</p>
-    </div>
-
-    <div class="card">
-      <h3>Simple & Professional</h3>
-      <p>Clean designs that make it easy for visitors to understand your business.</p>
-    </div>
-  </div>
-</section>
-
-<section id="pricing">
-  <h2>Website Packages</h2>
-
-  <div class="services">
-
-    <div class="card">
-      <h3>Basic</h3>
-      <p><strong>₦20,000</strong></p>
-      <p>Simple one-page website suitable for individuals and small businesses.</p>
-    </div>
-
-    <div class="card">
-      <h3>Standard</h3>
-      <p><strong>₦40,000</strong></p>
-      <p>Professional multi-section website with services, portfolio and contact information.</p>
-    </div>
-
-    <div class="card">
-      <h3>Professional</h3>
-      <p><strong>₦70,000+</strong></p>
-      <p>More advanced website tailored to your business or organization.</p>
-    </div>
-
-  </div>
-</section>
-
-<section id="portfolio" class="portfolio">
-  <h2>My Portfolio</h2>
-
-  <div class="card">
-    <h3>Cybersecurity Education Website</h3>
-
-    <p style="margin-top:15px;">
-      An educational website designed to teach visitors about
-      cybersecurity, online safety and common cyber threats.
+    <p>
+      Affordable Web Design for Businesses & Individuals
     </p>
 
-    <a class="button" href="https://example.com" target="_blank">
-      View Project
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+    <a href="#pricing" class="button">
+      Request a Website →
     </a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+
+    <h2>Professional Websites That Help Businesses Grow</h2>
+
+    <p>
+      I create modern, responsive and affordable websites
+      for businesses, professionals and individuals.
+    </p>
+
+    <a href="#pricing" class="button">
+      Request a Website →
+    </a>
+    <a href="#portfolio" class="button">
+      View My Work
+    </a>
+
+  </section>
+
+  <section id="services">
+
+    <h2>My Services</h2>
+
+    <div class="services-grid">
+
+      <div class="card">
+        <h3>Business Websites</h3>
+        <p>
+<div class="card">
+
+  <h3>Business Booking App</h3>
+          Professional websites that help businesses
+          establish a strong online presence.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Booking Websites</h3>
+        <p>
+          Appointment and booking systems that allow
+          customers to schedule services easily.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Mobile-Friendly Design</h3>
+        <p>
+          Websites designed to look great on phones,
+          tablets and computers.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Website Updates</h3>
+        <p>
+          Improve, redesign or update an existing website
+          to make it more modern and effective.
+        </p>
+      </div>
+
+    </div>
+  
+ 
+
+</section>
+<section id="pricing">
+
+  <h2>Web Design Packages</h2>
+
+  <div class="services-grid">
+
+    <div class="card">
+      <h3>Basic Website</h3>
+
+      <p class="price">₦20,000 <small>~$15</small></p>
+
+      <p>
+        A clean, professional website for individuals
+        and small businesses.
+      </p>
+ 
+      <ul>
+        <li>✓ Responsive design</li>
+        <li>✓ Up to 3 pages</li>
+        <li>✓ Contact section</li>
+        <li>✓ Mobile friendly</li>
+      </ul>
+
+      <a class="button" href="https://wa.me/2347045065523?text=Hi%20GPT%20Web%20Design%2C%20I%27m%20interested%20in%20the%20Basic%20Website%20package.">Get Started →</a>
+    </div>
+
+    <div class="card">
+      <span class="popular">MOST POPULAR</span>
+      <h3>Business Website</h3>
+
+      <p class="price">₦40,000 <small>~$30</small></p>
+
+      <p>
+        A complete professional website designed to
+        help your business attract customers.
+      </p>
+
+      <ul>
+        <li>✓ Up to 5 pages</li>
+        <li>✓ Professional design</li>
+        <li>✓ WhatsApp integration</li>
+        <li>✓ Mobile friendly</li>
+      </ul>
+
+      <a class="button" href="https://wa.me/2347045065523?text=Hi%20GPT%20Web%20Design%2C%20I%27m%20interested%20in%20the%20Business%20Website%20package.">Get Started →</a>
+    </div>
+
+    <div class="card">
+      <span class="popular">BEST FOR BUSINESSES</span>
+      <h3>Booking Website</h3>
+
+      <p class="price">₦70,000 <small>~$53</small></p>
+
+      <p>
+        A business website with an appointment
+        booking system.
+      </p>
+
+      <ul>
+        <li>✓ Booking system</li>
+        <li>✓ Service pricing</li>
+        <li>✓ WhatsApp booking</li>
+        <li>✓ Mobile friendly</li>
+      </ul>
+
+      <a class="button" href="https://wa.me/2347045065523?text=Hi%20GPT%20Web%20Design%2C%20I%27m%20interested%20in%20the%20Booking%20Website%20package.">Get Started →</a>
+    </div>
+
   </div>
+
 </section>
 
-<section id="contact" class="contact">
-  <h2>Let's Work Together</h2>
+  <section id="portfolio">
 
-  <p>
-    Need a simple website for your business or project?
-  </p>
+    <h2>My Portfolio</h2>
 
-  <a class="button" href="https://wa.me/2347045065523" target="_blank">
-    Chat With Me on WhatsApp
-  </a>
-</section>
+    <div class="portfolio-grid">
 
-<footer>
-  <p>© 2026 GPT Web Design. All rights reserved.</p>
-</footer>
+      <div class="card">
+
+        <h3>Cybersecurity Education Website</h3>
+
+        <p>
+          An educational website designed to teach visitors
+          about cybersecurity, online safety and common
+          cyber threats.
+        </p>
+
+        <a class="button" href="https://emmycush.github.io/webtest/">
+          View Project
+        </a>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Business Booking App</h3>
+
+        <p>
+          A professional appointment booking system designed
+          for salons, barbers, beauty businesses and
+          service providers.
+        </p>
+        
+        <ul>
+          <li>📅 Appointment booking</li>
+          <li>💰 Service pricing</li>
+          <li>📱 WhatsApp booking</li>
+          <li>📱 Mobile-friendly design</li>
+        </ul>
+
+        <a class="button" href="booking.html">
+          View Booking Demo →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="about" class="about">
+
+    <h2>About Me</h2>
+
+    <p>
+      I build affordable and practical websites for businesses
+      and individuals who want to improve their online presence.
+      My goal is to create websites that look professional,
+      work well on mobile devices and are easy for customers
+      to use.
+    </p>
+
+  </section>
+
+  <section id="contact" class="contact">
+
+    <h2>Let's Work Together</h2>
+
+    <p>
+      Need a professional website or booking system?
+      Get in touch and let's discuss your project.
+    </p>
+
+    <a
+      class="button"
+      href="https://wa.me/2347045065523"
+      target="_blank">
+      Contact Me on WhatsApp
+    </a>
+
+  </section>
+
+  <footer>
+
+    <p>
+      © 2026 GPT Web Design
+    </p>
+
+    <p>
+      Professional Web Design & Booking Solutions
+    </p>
+
+    <br>
+
+    <a href="https://emmycush.github.io/webtest/">Privacy Policy</a>
+    <a href="https://emmycush.github.io/webtest/">Disclaimer</a>
+    <a href="https://emmycush.github.io/webtest/">Terms & Conditions</a>
+
+  </footer>
 
 </body>
 </html>
