@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Quote Calculator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 20px 0 8px;
+    }
+
+    select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    .option input {
+      width: 18px;
+      height: 18px;
+    }
+
+    .total {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f0f2f5;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .total h2 {
+      margin: 5px 0;
+      font-size: 32px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    .back {
+      background: #222;
+      color: white;
+    }
+
+    .note {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+
+      <h1>Website Quote Calculator</h1>
+
+      <p class="subtitle">
+        Get an estimated price for your new website.
+      </p>
+
+      <label for="service">Choose a service</label>
+
+      <select id="service" onchange="calculateTotal()">
+        <option value="150">Landing Page — $150</option>
+        <option value="250">Business Website — $250</option>
+        <option value="400">E-commerce Website — $400</option>
+        <option value="500">Web Application — $500</option>
+      </select>
+
+      <label>Choose add-ons</label>
+
+      <div class="option">
+        <input type="checkbox" value="30" onchange="calculateTotal()">
+        <span>WhatsApp Integration — $30</span>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" value="50" onchange="calculateTotal()">
+        <span>Booking System — $50</span>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" value="30" onchange="calculateTotal()">
+        <span>Contact Form — $30</span>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" value="50" onchange="calculateTotal()">
+        <span>Mobile Optimization — $50</span>
+      </div>
+
+      <div class="total">
+        <p>Estimated Total</p>
+        <h2 id="total">$150</h2>
+      </div>
+
+      <button class="whatsapp" onclick="sendWhatsApp()">
+        Request This Quote on WhatsApp
+      </button>
+
+      <button class="back" onclick="history.back()">
+        Back to Portfolio
+      </button>
+
+      <p class="note">
+        This is an estimated price. Final pricing may vary depending on project requirements.
+      </p>
+
+    </div>
+  </div>
+
+  <script>
+    function calculateTotal() {
+      const service = document.getElementById("service");
+      let total = Number(service.value);
+
+      const addons = document.querySelectorAll(
+        'input[type="checkbox"]:checked'
+      );
+
+      addons.forEach(function(addon) {
+        total += Number(addon.value);
+      });
+
+      document.getElementById("total").textContent =
+        "$" + total;
+    }
+
+    function sendWhatsApp() {
+      const service = document.getElementById("service");
+      const serviceName =
+        service.options[service.selectedIndex].text;
+
+      let total = Number(service.value);
+      let addonsText = [];
+
+      const addons = document.querySelectorAll(
+        'input[type="checkbox"]:checked'
+      );
+
+      addons.forEach(function(addon) {
+        total += Number(addon.value);
+        addonsText.push(addon.parentElement.innerText);
+      });
+
+      let message =
+        "Hello, I would like a website quote.%0A%0A" +
+        "Service: " + encodeURIComponent(serviceName) +
+        "%0A";
+
+      if (addonsText.length > 0) {
+        message +=
+          "Add-ons: " +
+          encodeURIComponent(addonsText.join(", ")) +
+          "%0A";
+      }
+
+      message +=
+        "Estimated Total: $" + total;
+
+      const phoneNumber = "2347045065523";
+
+      window.open(
+        "https://wa.me/" + phoneNumber + "?text=" + message,
+        "_blank"
+      );
+    }
+
+    calculateTotal();
+  </script>
+
+</body>
+</html>
