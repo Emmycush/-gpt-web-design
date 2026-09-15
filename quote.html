@@ -125,37 +125,18 @@
       <label for="service">Choose a service</label>
 
       <select id="service" onchange="calculateTotal()">
-        <option value="150">Landing Page — $150</option>
-        <option value="250">Business Website — $250</option>
-        <option value="400">E-commerce Website — $400</option>
-        <option value="500">Web Application — $500</option>
+        <option value="20000">Basic Website — ₦20,000 (~$15)</option>
+        <option value="40000">Business Website — ₦40,000 (~$30)</option>
+        <option value="70000">Booking Website — ₦70,000 (~$53)</option>
       </select>
 
-      <label>Choose add-ons</label>
-
-      <div class="option">
-        <input type="checkbox" value="30" onchange="calculateTotal()">
-        <span>WhatsApp Integration — $30</span>
-      </div>
-
-      <div class="option">
-        <input type="checkbox" value="50" onchange="calculateTotal()">
-        <span>Booking System — $50</span>
-      </div>
-
-      <div class="option">
-        <input type="checkbox" value="30" onchange="calculateTotal()">
-        <span>Contact Form — $30</span>
-      </div>
-
-      <div class="option">
-        <input type="checkbox" value="50" onchange="calculateTotal()">
-        <span>Mobile Optimization — $50</span>
-      </div>
+      <p class="note">
+        All packages include mobile-friendly design. Final pricing may vary depending on project requirements.
+      </p>
 
       <div class="total">
         <p>Estimated Total</p>
-        <h2 id="total">$150</h2>
+        <h2 id="total">₦20,000 (~$15)</h2>
       </div>
 
       <button class="whatsapp" onclick="sendWhatsApp()">
@@ -186,8 +167,9 @@
         total += Number(addon.value);
       });
 
+      const dollars = Math.round(total / 1333);
       document.getElementById("total").textContent =
-        "$" + total;
+        "₦" + total.toLocaleString() + " (~$" + dollars + ")";
     }
 
     function sendWhatsApp() {
@@ -219,8 +201,9 @@
           "%0A";
       }
 
+      const dollars = Math.round(total / 1333);
       message +=
-        "Estimated Total: $" + total;
+        "Estimated Total: ₦" + total.toLocaleString() + " (~$" + dollars + ")";
 
       const phoneNumber = "2347045065523";
 
